@@ -1,0 +1,2295 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Exam for 4 month Meros App",
+    "description": "This is Meros App for Exam this app for online shops",
+    "version": "0.0.0"
+  },
+  "paths": {
+    "/category/get": {
+      "get": {
+        "tags": ["Category"],
+        "sammary": "Get all Categories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Successful",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "d80eed01-6a30-4a9a-8d81-a10db45455ea",
+                          "category_title": "Для мужчин",
+                          "subCategory": [
+                            {
+                              "id": "8fc1655e-fd2e-4cf0-b7b1-24b62b6df19b",
+                              "sub_category_title": "Узбекские книги"
+                            },
+                            {
+                              "id": "d61beeec-6bb9-446e-bc1b-b9f54a3129dd",
+                              "sub_category_title": "Книги мира"
+                            },
+                            {
+                              "id": "5c2d1a63-c6fd-470c-95b4-af2acf01e6e2",
+                              "sub_category_title": "Исламские книги"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "418b7678-f120-428b-ba1f-02b1d50b9eea",
+                          "category_title": "Канцтовары",
+                          "subCategory": []
+                        },
+                        {
+                          "id": "801bea10-cc51-4bf1-9fe0-04b4e327beca",
+                          "category_title": "Атрибутика",
+                          "subCategory": []
+                        },
+                        {
+                          "id": "b0ed5102-a581-4e00-afe4-60eedb32dbd8",
+                          "category_title": "Для мужчин",
+                          "subCategory": []
+                        },
+                        {
+                          "id": "37905622-e69d-4309-baa9-3ea4d0f9a76d",
+                          "category_title": "Диски",
+                          "subCategory": []
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/post": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Post ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "category_title": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "category_title": "Исламские книги"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "category_title": "Исламские книги"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/patch/{id}": {
+      "patch": {
+        "tags": ["Category"],
+        "summary": "Patch Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "description": "With this api you can Patch Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "category_title": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "category_title": "Для мужчин"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Patch",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "id": "1120f438-9713-4cab-830e-0bbf97fa3446",
+                        "category_title": "Диски"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/delete/{id}": {
+      "delete": {
+        "tags": ["Category"],
+        "summary": "Delete Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category Deleted Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Delete",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "204",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "id": "37905622-e69d-4309-baa9-3ea4d0f9a76d",
+                        "category_title": "Диски"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subCategory/get/{id}": {
+      "get": {
+        "tags": ["Category"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "d61beeec-6bb9-446e-bc1b-b9f54a3129dd",
+                          "sub_category_title": "Книги мира",
+                          "lower": [
+                            {
+                              "id": "1b2d5d58-096d-4837-8e5c-56cde2db71be",
+                              "lower_title": "Научная литература"
+                            },
+                            {
+                              "id": "c2cf1906-c2f3-4cde-828c-4a9ca4e518dd",
+                              "lower_title": "Комикси"
+                            },
+                            {
+                              "id": "57f84bb3-bd76-4302-9282-2b9240da1e17",
+                              "lower_title": "Литература"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "5c2d1a63-c6fd-470c-95b4-af2acf01e6e2",
+                          "sub_category_title": "Исламские книги",
+                          "lower": []
+                        },
+                        {
+                          "id": "8fc1655e-fd2e-4cf0-b7b1-24b62b6df19b",
+                          "sub_category_title": "Узбекские книги",
+                          "lower": []
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subCategory/get": {
+      "get": {
+        "tags": ["SubCategory"],
+        "sammary": "Categories Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Successful",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "d61beeec-6bb9-446e-bc1b-b9f54a3129dd",
+                          "sub_category_title": "Книги мира",
+                          "lower": [
+                            {
+                              "id": "1b2d5d58-096d-4837-8e5c-56cde2db71be",
+                              "lower_title": "Научная литература"
+                            },
+                            {
+                              "id": "c2cf1906-c2f3-4cde-828c-4a9ca4e518dd",
+                              "lower_title": "Комикси"
+                            },
+                            {
+                              "id": "57f84bb3-bd76-4302-9282-2b9240da1e17",
+                              "lower_title": "Литература"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "5c2d1a63-c6fd-470c-95b4-af2acf01e6e2",
+                          "sub_category_title": "Исламские книги",
+                          "lower": []
+                        },
+                        {
+                          "id": "8fc1655e-fd2e-4cf0-b7b1-24b62b6df19b",
+                          "sub_category_title": "Узбекские книги",
+                          "lower": []
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subCategory/post": {
+      "post": {
+        "tags": ["SubCategory"],
+        "summary": "Post ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+
+                "properties": {
+                  "categoryId": {
+                    "type": "string"
+                  },
+                  "sub_category_title": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "sub_category_title": "Исламские книги, книги",
+                  "categoryId": "d61beeec-6bb9-446e-bc1b-b9f54a3129dd"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "sub_category_title": "Исламские книги"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subCategory/patch/{id}": {
+      "patch": {
+        "tags": ["SubCategory"],
+        "summary": "Patch Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "description": "With this api you can Patch Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "sub_category_title": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "sub_category_title": "Книги мира мужчин"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Patch",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "id": "d61beeec-6bb9-446e-bc1b-b9f54a3129dd",
+                        "sub_category_title": "Диски"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subCategory/delete/{id}": {
+      "delete": {
+        "tags": ["SubCategory"],
+        "summary": "Delete Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category Deleted Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Delete",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "204",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "id": "c2cf1906-c2f3-4cde-828c-4a9ca4e518dd",
+                        "sub_category_title": "Комикси"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lower/get/{id}": {
+      "get": {
+        "tags": ["SubCategory"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "1b2d5d58-096d-4837-8e5c-56cde2db71be",
+                          "lower_title": "Научная литература"
+                        },
+                        {
+                          "id": "c2cf1906-c2f3-4cde-828c-4a9ca4e518dd",
+                          "lower_title": "Комикси"
+                        },
+                        {
+                          "id": "57f84bb3-bd76-4302-9282-2b9240da1e17",
+                          "lower_title": "Литература"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lower/gets": {
+      "get": {
+        "tags": ["Lower"],
+        "sammary": "Categories Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Successful",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "d61beeec-6bb9-446e-bc1b-b9f54a3129dd",
+                          "sub_category_title": "Книги мира",
+                          "lower": [
+                            {
+                              "id": "1b2d5d58-096d-4837-8e5c-56cde2db71be",
+                              "lower_title": "Научная литература"
+                            },
+                            {
+                              "id": "c2cf1906-c2f3-4cde-828c-4a9ca4e518dd",
+                              "lower_title": "Комикси"
+                            },
+                            {
+                              "id": "57f84bb3-bd76-4302-9282-2b9240da1e17",
+                              "lower_title": "Литература"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "5c2d1a63-c6fd-470c-95b4-af2acf01e6e2",
+                          "sub_category_title": "Исламские книги",
+                          "lower": []
+                        },
+                        {
+                          "id": "8fc1655e-fd2e-4cf0-b7b1-24b62b6df19b",
+                          "sub_category_title": "Узбекские книги",
+                          "lower": []
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lower/post": {
+      "post": {
+        "tags": ["Lower"],
+        "summary": "Post ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+
+                "properties": {
+                  "subCategoryId": {
+                    "type": "string"
+                  },
+                  "lower_title": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "lower_title": "Литература книги, книги",
+                  "subCategoryId": "d61beeec-6bb9-446e-bc1b-b9f54a3129dd"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "lower_title": "(⌐■_■) книги"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lower/patch/{id}": {
+      "patch": {
+        "tags": ["Lower"],
+        "summary": "Patch Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "description": "With this api you can Patch Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "subCategoryId": {
+                    "type": "string"
+                  },
+                  "lower_title": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "subCategoryId": "1b2d5d58-096d-4837-8e5c-56cde2db71be",
+                  "lower_title": "Научная литература мужчин"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Patch",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "id": "1b2d5d58-096d-4837-8e5c-56cde2db71be",
+                        "lower_title": "Диски"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lower/delete/{id}": {
+      "delete": {
+        "tags": ["Lower"],
+        "summary": "Delete Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category Deleted Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Delete",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "204",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "id": "c2cf1906-c2f3-4cde-828c-4a9ca4e518dd",
+                        "lower_title": "Комикси"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lewer/product/get/{id}": {
+      "get": {
+        "tags": ["Lower"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "Olimpiya ",
+                          "protuctes_price": "70000",
+                          "yanginarhi": "0",
+                          "img": "1675720034177-268461371_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "chegirma": 0,
+                          "darajasi": null
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/get/{id}": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "a9f5d685-f196-425e-9b29-1f06a00abb9e",
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "Kecha va kunduz",
+                          "aftur": "zur zur",
+                          "protuctes_title": "zur zur",
+                          "protuctes_descirption": "zur zur ",
+                          "protuctes_price": "70000",
+                          "yanginarhi": "0",
+                          "protuctes_size": "25",
+                          "protuctes_razmer": "20X15",
+                          "protuctes_manufacturers_size": "23g",
+                          "packed_weight_kg": "400g",
+                          "img": "1675719889721-1744151431_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "protuctes_rate": null,
+                          "chegirma": 0,
+                          "nechta_sotdi": 0,
+                          "time": "2023-02-06T16:44:50.912Z",
+                          "darajasi": {
+                            "ortachas": "5"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/cheap/ones": {
+      "get": {
+        "tags": ["Product"],
+        "sammary": "Categories Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Successful",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "chotkey",
+                          "protuctes_price": "3000",
+                          "yanginarhi": "0",
+                          "img": "1675837111014-3009580921_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "chegirma": 0,
+                          "time": "2023-02-08T01:18:31.614Z",
+                          "darajasi": null
+                        },
+                        {
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "chotkey",
+                          "protuctes_price": "4000",
+                          "yanginarhi": "0",
+                          "img": "1675837120162-7646517671_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "chegirma": 0,
+                          "time": "2023-02-08T01:18:40.110Z",
+                          "darajasi": null
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/time": {
+      "get": {
+        "tags": ["Product"],
+        "sammary": "Categories Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Successful",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "chotkey",
+                          "protuctes_price": "6000",
+                          "yanginarhi": "0",
+                          "img": "1675837128539-1579925601_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "chegirma": 0,
+                          "time": "2023-02-08T01:18:48.484Z",
+                          "darajasi": null
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/reyting": {
+      "get": {
+        "tags": ["Product"],
+        "sammary": "Categories Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Successful",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "1993-1996 mat",
+                          "protuctes_price": "70000",
+                          "yanginarhi": "0",
+                          "img": "1675719996307-6158343421_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "chegirma": 0,
+                          "time": "2023-02-06T16:46:37.467Z",
+                          "darajasi": {
+                            "ortachas": "2.50"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/sotgani": {
+      "get": {
+        "tags": ["Product"],
+        "sammary": "Categories Get",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Successful",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "Kecha va kunduz",
+                          "protuctes_price": "70000",
+                          "yanginarhi": "0",
+                          "img": "1675719889721-1744151431_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "chegirma": 0,
+                          "time": "2023-02-06T16:44:50.912Z",
+                          "darajasi": {
+                            "ortachas": "5"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/post": {
+      "post": {
+        "tags": ["Product"],
+        "summary": "Post ",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+
+                "properties": {
+                  "protuctes_brend": {
+                    "type": "string"
+                  },
+                  "protuctes_brendname": {
+                    "type": "string"
+                  },
+                  "protuctes_descirption": {
+                    "type": "string"
+                  },
+                  "protuctes_price": {
+                    "type": "integer"
+                  },
+                  "protuctes_size": {
+                    "type": "string"
+                  },
+                  "protuctes_razmer": {
+                    "type": "string"
+                  },
+                  "img": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "protuctes_manufacturers_size": {
+                    "type": "string"
+                  },
+                  "packed_weight_kg": {
+                    "type": "string"
+                  },
+                  "protuctes_title": {
+                    "type": "string"
+                  },
+                  "lowerId": {
+                    "type": "string"
+                  },
+                  "aftur": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "protuctes_brend": "zur zur",
+                  "protuctes_brendname": "zur zur",
+                  "protuctes_descirption": "zur zur",
+                  "protuctes_price": 7000,
+                  "img": "1675719936205-9950586941_GT4X9mQhr-KedzYiE_gqTg.png",
+                  "protuctes_size": "zur zur",
+                  "protuctes_razmer": "zur zur",
+                  "protuctes_manufacturers_size": "zur zur",
+                  "packed_weight_kg": "zur zur",
+                  "protuctes_title": "zur zur",
+                  "lowerId": "zur zur",
+                  "aftur": "zur zur"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "lower_title": "(⌐■_■) книги"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/patch/{id}": {
+      "patch": {
+        "tags": ["Product"],
+        "summary": "Patch Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "description": "With this api you can Patch Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "protuctes_brend": {
+                    "type": "string"
+                  },
+                  "protuctes_brendname": {
+                    "type": "string"
+                  },
+                  "protuctes_descirption": {
+                    "type": "string"
+                  },
+                  "protuctes_price": {
+                    "type": "integer"
+                  },
+                  "protuctes_size": {
+                    "type": "string"
+                  },
+                  "protuctes_razmer": {
+                    "type": "string"
+                  },
+                  "protuctes_manufacturers_size": {
+                    "type": "string"
+                  },
+                  "packed_weight_kg": {
+                    "type": "string"
+                  },
+                  "protuctes_title": {
+                    "type": "string"
+                  },
+                  "lowerId": {
+                    "type": "string"
+                  },
+                  "aftur": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "protuctes_brend": "zur zur",
+                  "protuctes_brendname": "zur zur",
+                  "protuctes_descirption": "zur zur",
+                  "protuctes_price": 7000,
+                  "protuctes_size": "zur zur",
+                  "protuctes_razmer": "zur zur",
+                  "protuctes_manufacturers_size": "zur zur",
+                  "packed_weight_kg": "zur zur",
+                  "protuctes_title": "zur zur",
+                  "lowerId": "zur zur",
+                  "aftur": "zur zur"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Patch",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/delete/{id}": {
+      "delete": {
+        "tags": ["Product"],
+        "summary": "Delete Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category Deleted Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Delete",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "204",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lewer/prodduct/get/{id}": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "protuctes_brend": "Yasin Online",
+                          "protuctes_brendname": "Olimpiya ",
+                          "protuctes_price": "70000",
+                          "yanginarhi": "0",
+                          "img": "1675720034177-268461371_GT4X9mQhr-KedzYiE_gqTg.png",
+                          "chegirma": 0,
+                          "darajasi": null
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/post": {
+      "post": {
+        "tags": ["Login"],
+        "summary": "Post ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "dostonbek@gmail.com",
+                  "password": "12345"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "token": "eyJhbGciOiJIUzI1NiJ9.NzdjZmM5ODItZDdiNC00Yjg2LTkyMWMtMjBlMzVmMWIxNTVm.YtRxR1smQXs7ru7FErsSvNOI5apvUFUe9KE0MpkVDRk"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/darajasi/put/{id}": {
+      "put": {
+        "tags": ["⭐⭐⭐⭐⭐"],
+        "summary": "Patch Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "description": "With this api you can Patch Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "star": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "star": 1
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Patch",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments/post": {
+      "post": {
+        "tags": ["Comment"],
+        "summary": "create Category",
+        "description": "With this api you can create Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment_title": {
+                    "type": "string"
+                  },
+                  "productsId": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "comment_title": "Dostondi commenti",
+                  "productsId": "a9f5d685-f196-425e-9b29-1f06a00abb9e"
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments/put/{id}": {
+      "put": {
+        "tags": ["Comment"],
+        "summary": "Patch",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "description": "With this api you can Patch Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "comment_title": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "comment_title": "salom salom !!!"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Patch",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments/get/{id}": {
+      "get": {
+        "tags": ["Comment"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "comment_title": "Dostondi commenti",
+                          "users": {
+                            "first_name": "Dostonbek",
+                            "last_name": "Dostonbek",
+                            "avatar": null
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments/delete/{id}": {
+      "delete": {
+        "tags": ["Comment"],
+        "summary": "Delete Category",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category Deleted Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Delete",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "204",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/post": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Post ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+
+                "properties": {
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "first_name": "oybek",
+                  "last_name": "oybke",
+                  "email": "oybek@gmail.com",
+                  "phone": "99376920",
+                  "password": "1234567"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "message": "Successful",
+                        "status": 201,
+                        "token": "eyJhbGciOiJIUzI1NiJ9.NDRmMTVhYjItODZjNC00YTAxLWJjYWEtZWFhNTk0ZmE2MjYw.FLCWD8J6a8kvLa79COPDmipUs04w2g5w1WNtpV8F4Ig"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/get": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "7189f8ea-e8c5-4c35-a4c9-be706642ece5",
+                          "first_name": "asdf",
+                          "last_name": "salim",
+                          "email": "salim@gmail.com",
+                          "phone": "99376920",
+                          "gendry": "Erkag",
+                          "password": "123456",
+                          "avatar": "1675698508566-8078002331_GT4X9mQhr-KedzYiE_gqTg.png"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/zakas/post": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "create Category",
+        "description": "With this api you can create Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productsId": {
+                    "type": "string"
+                  },
+                  "soni": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "productsId": "a9f5d685-f196-425e-9b29-1f06a00abb9e",
+                  "soni": 3
+                }
+              }
+            }
+          }
+        },
+
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/zakas/get": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Create a new Category",
+        "description": "With this api you can view Category",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json:": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "OK",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "200",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "view Category",
+                      "default": [
+                        {
+                          "id": "7189f8ea-e8c5-4c35-a4c9-be706642ece5",
+                          "first_name": "asdf",
+                          "last_name": "salim",
+                          "email": "salim@gmail.com",
+                          "phone": "99376920",
+                          "gendry": "Erkag",
+                          "password": "123456",
+                          "avatar": "1675698508566-8078002331_GT4X9mQhr-KedzYiE_gqTg.png"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/user/patch": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Post ",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "token",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+
+                "properties": {
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "gendry": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "example": {
+                  "first_name": "sashka",
+                  "last_name": "sashka",
+                  "email": "sashka@gmail.com",
+                  "phone": "sashka",
+                  "gendry": "sashka",
+                  "password": "sashka",
+                  "avatar": "1675698508566-8078002331_GT4X9mQhr-KedzYiE_gqTg.png"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Message of the response"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "format": "int64",
+                      "default": "201",
+                      "description": "Status of the response"
+                    },
+                    "data": {
+                      "type": "object",
+                      "default": {
+                        "lower_title": "(⌐■_■) книги"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "Category Get": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "fdd8a097-fe2b-4fec-8921-92cbe94cbfad"
+          },
+          "category_title": {
+            "type": "string",
+            "example": "book"
+          }
+        }
+      },
+      "Category Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "fdd8a097-fe2b-4fec-8921-92cbe94cbfad"
+          },
+          "category_title": {
+            "type": "string",
+            "example": "book"
+          }
+        }
+      },
+      "Category Patch": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "fdd8a097-fe2b-4fec-8921-92cbe94cbfad"
+          },
+          "category_title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "Category Delete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "fdd8a097-fe2b-4fec-8921-92cbe94cbfad"
+          },
+          "category_title": {
+            "type": "string",
+            "example": "fdd8a097-fe2b-4fec-8921-92cbe94cbfad"
+          }
+        }
+      }
+    }
+  }
+}
